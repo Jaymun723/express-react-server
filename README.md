@@ -4,6 +4,7 @@
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://choosealicense.com/licenses/mit/)
 [![Node version](https://img.shields.io/badge/node-v8.4.0%2B-14ace8.svg)](https://nodejs.org/)
+[![Build Status](https://travis-ci.org/Jaymun723/express-react-server.svg?branch=master)](https://travis-ci.org/Jaymun723/express-react-server)
 
 > Use react as a template for express **Support dynamic React** !!
 
