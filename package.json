@@ -9,7 +9,7 @@
   ],
   "main": "index.js",
   "scripts": {
-    "test": "node test"
+    "test": "node test/app.js"
   },
   "author": "Jaymun723",
   "license": "MIT",
