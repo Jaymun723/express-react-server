@@ -20,6 +20,10 @@ app.get('/', function (req, res) {
 
 app.use('/bundle', ers.servBundle)
 
-app.listen(8000, function () {
-  console.log('Server listening on port 8000.')
+app.listen(8000, function (err) {
+  if (err) {
+    throw err
+  } else {
+    process.exit(0)
+  }
 })
