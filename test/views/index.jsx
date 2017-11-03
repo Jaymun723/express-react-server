@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Component
-class CoolButton extends React.Component {
+class App extends React.Component {
   componentWillMount () {
     this.setState({count: 0})
   }
@@ -27,7 +27,9 @@ export default class extends React.Component {
           <meta charSet='utf-8' />
         </head>
         <body>
-          <CoolButton />
+          <main>
+            <App />
+          </main>
           {/* Require the index bundle */}
           <script src='/bundle/index' />
         </body>
@@ -37,4 +39,4 @@ export default class extends React.Component {
 }
 
 // Export for the bundle
-export { CoolButton }
+export { App }

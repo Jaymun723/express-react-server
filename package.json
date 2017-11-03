@@ -1,6 +1,6 @@
 {
   "name": "express-react-server",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Utility module to build a server with react and express.",
   "keywords": [
     "express",
@@ -9,7 +9,7 @@
   ],
   "main": "index.js",
   "scripts": {
-    "test": "node test/app.js"
+    "test": "node test/server.js"
   },
   "author": "Jaymun723",
   "license": "MIT",
@@ -30,6 +30,8 @@
     "react-dom": "^16.0.0"
   },
   "standard": {
-    "globals": [ "bundleDir" ]
+    "globals": [
+      "bundleDir"
+    ]
   }
 }

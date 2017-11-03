@@ -1,5 +1,5 @@
-module.exports = function (name, value) {
-  if (name === 'bundleDir') {
-    bundleDir = value // eslint-disable-line no-global-assign
+module.exports = function (arg, text) {
+  if (arg === 'bundleDir') {
+    bundleDir = text // eslint-disable-line no-global-assign
   }
 }

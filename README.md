@@ -19,7 +19,8 @@ npm install --save express-react-server
 > Used for rendering static html
 
 Structure:
-```
+
+```dir
 My directory
 |- server.js
 `- views
@@ -27,33 +28,40 @@ My directory
 ```
 
 `server.js`:
+
 ```js
-// Express
-var express = require('express')
-var app = express()
+// Require path
+const path = require('path')
+
+// Init Express
+const express = require('express')
+const app = express()
 
 // Require express react server
-var ers = require('express-react-server')
-// Set the bundle dir
-ers.set('bundleDir', './bundle')
+const reactServer = require('express-react-server')
 
 // Define engine
-app.engine('jsx', ers.createEngine())
+app.engine('jsx', reactServer.createEngine())
 
 // Define views
-app.set('views', './views')
+app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'jsx')
 
+// Basic route
 app.get('/', function (req, res) {
   res.render('index', {title: 'Express-React-Server', name: 'John Doe'})
 })
 
-app.listen(8000, function () {
-  console.log('Server listening on port 8000.')
+// Listening on port
+var port = 8000
+app.listen(port, function () {
+  console.log('Server running on port: ' + port)
 })
+
 ```
 
 `views/index.jsx`:
+
 ```js
 import React from 'react'
 
@@ -80,72 +88,13 @@ export default class extends React.Component {
 
 > Used for rendering dynamic html
 
-Structure:
-```
-My directory
-|- server.js
-|- bundle
-|  `- index.jsx
-`- views
-   `- index.jsx
-```
+Check the in the [test directory](/test)
 
-`server.js`:
-```js
-// Same as the precendent but with
-app.use('/bundle', ers.servBundle)
-```
+## Other stuff
 
-`views/index.jsx`:
-```js
-import React from 'react'
+Forked from [express-react-views](https://github.com/reactjs/express-react-views).
+Code style [stabdard](https://standardjs.com/).
 
-// Component
-class CoolButton extends React.Component {
-  componentWillMount () {
-    this.setState({count: 0})
-  }
+## License
 
-  render () {
-    const {count} = this.state
-
-    return (
-      <button type='button' onClick={() => this.setState({count: count + 1})}>
-        Click HERE to increment: {count}
-      </button>
-    )
-  }
-}
-
-// Export default for server first rendering
-export default class extends React.Component {
-  render () {
-    return (
-      <html>
-        <head>
-          <title>{this.props.title}</title>
-          <meta charSet='utf-8' />
-        </head>
-        <body>
-          <CoolButton />
-          {/* Require the index bundle */}
-          <script src='/bundle/index' />
-        </body>
-      </html>
-    )
-  }
-}
-
-// Export for the bundle
-export { CoolButton }
-```
-
-`bundle/index.jsx`:
-```js
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { CoolButton } from '../views/index.jsx'
-
-// Use hydrate to initialize event, inputs ...
-ReactDOM.hydrate(<CoolButton />, document.querySelector('body'))
-```
+See the [license file](/LICENSE)
