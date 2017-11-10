@@ -1,6 +1,6 @@
 {
   "name": "express-react-server",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Utility module to build a server with react and express.",
   "keywords": [
     "express",
@@ -28,10 +28,5 @@
     "lodash.escaperegexp": "^4.1.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
-  },
-  "standard": {
-    "globals": [
-      "bundleDir"
-    ]
   }
 }
